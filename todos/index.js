@@ -6,7 +6,11 @@ let mainWindow;
 let addWindow;
 
 app.on("ready", () => {
-  mainWindow = new BrowserWindow({});
+  mainWindow = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
   mainWindow.loadURL(`file://${__dirname}/main.html`);
   mainWindow.on("closed", () => app.quit());
 
