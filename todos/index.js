@@ -5,6 +5,7 @@ const { app, BrowserWindow, Menu, ipcMain } = electron;
 let mainWindow;
 let addWindow;
 
+// app.disableHardwareAcceleration();
 app.on("ready", () => {
   mainWindow = new BrowserWindow({
     webPreferences: {
