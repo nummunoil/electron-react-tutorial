@@ -32,9 +32,9 @@ app.on("ready", () => {
     } else {
       mainWindow.setBounds({
         x: x - width / 2,
-        y: y,
-        height: height,
-        width: width,
+        y,
+        height,
+        width,
       });
       mainWindow.show();
     }
