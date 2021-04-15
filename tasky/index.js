@@ -4,7 +4,7 @@ const { app, BrowserWindow } = electron;
 
 let mainWindow;
 
-app.prependListener("ready", () => {
+app.on("ready", () => {
   mainWindow = new BrowserWindow({
     height: 500,
     width: 300,
