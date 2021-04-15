@@ -21,10 +21,21 @@ app.on("ready", () => {
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
   tray = new Tray(iconPath);
   tray.on("click", (event, bounds) => {
-    console.log("bounds icon : ", bounds.x, bounds.y);
+    // Click event bounds
+    const { x, y } = bounds;
+
+    //Window height and width
+    const { height, width } = mainWindow.getBounds();
+
     if (mainWindow.isVisible()) {
       mainWindow.hide();
     } else {
+      mainWindow.setBounds({
+        x: x - width / 2,
+        y: y,
+        height: height,
+        width: width,
+      });
       mainWindow.show();
     }
   });
