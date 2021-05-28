@@ -16,7 +16,13 @@ app.on("ready", () => {
 });
 
 ipcMain.on("videos:added", (event, videos) => {
-  ffmpeg.ffprobe(videos[0].path, (err, metadata) => {
+  const promise = new Promise((resolve, reject) => {
+    ffmpeg.ffprobe(videos[0].path, (err, metadata) => {
+      resolve(metadata);
+    });
+  });
+
+  promise.then((metadata) => {
     console.log("metadata : ", metadata);
   });
 });
