@@ -1,4 +1,5 @@
 const electron = require("electron");
+const ffmpeg = require("fluent-ffmpeg");
 
 const { app, BrowserWindow, ipcMain } = electron;
 
@@ -15,5 +16,7 @@ app.on("ready", () => {
 });
 
 ipcMain.on("videos:added", (event, videos) => {
-  console.log("videos : ", videos);
+  ffmpeg.ffprobe(videos[0].path, (err, metadata) => {
+    console.log("metadata : ", metadata);
+  });
 });
