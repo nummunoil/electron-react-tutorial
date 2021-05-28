@@ -2,7 +2,7 @@ const electron = require("electron");
 const { BrowserWindow } = electron;
 
 class MainWindow extends BrowserWindow {
-  constructor() {
+  constructor(url) {
     super({
       height: 500,
       width: 300,
@@ -11,6 +11,7 @@ class MainWindow extends BrowserWindow {
       show: false,
     });
 
+    this.loadURL(url);
     this.on("blur", this.onBlur.bind(this));
   }
 

@@ -10,8 +10,7 @@ let tray;
 
 app.on("ready", () => {
   app.dock.hide();
-  mainWindow = new MainWindow();
-  mainWindow.loadURL(`file://${__dirname}/src/index.html`);
+  mainWindow = new MainWindow(`file://${__dirname}/src/index.html`);
 
   const iconName =
     process.platform === "win32" ? "windows-icon.png" : "iconTemplate.png";
